@@ -9,7 +9,6 @@ soup = BeautifulSoup(r.content, 'html.parser')
 
 arr = []
 
-
 for title in soup.find_all('a',{'tm-article-snippet__title-link' }):
     d = {}
     d['link'] = 'https://habr.com' + title.get('href')
@@ -17,7 +16,6 @@ for title in soup.find_all('a',{'tm-article-snippet__title-link' }):
         correct = str(child)
         d['title'] = correct.replace('<span>','').replace('</span>','')
         arr.append(d)
-
 
 d = datetime.datetime.now()
 
